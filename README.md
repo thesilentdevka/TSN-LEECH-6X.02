@@ -1,10 +1,3 @@
-[![HM LEECH ZONE BOT](https://telegra.ph/file/9c54af2d6f60f215ab0ec.png)](https://t.me/hmrequestbot)
-
-owner of this repo :- [HM MODS](https://github.com/HM-MODS)
-
-contact me :- [HM MODS](https://t.me/hmrequestbot)
-
-
 
 # Telegram Torrent and Direct links Leecher 
 
@@ -179,7 +172,6 @@ Available BOT  Commands | Usage
      rename - rename the file
      toggledoc - choose whether the file shall be uploaded as doc or not
      togglevid - choose whether the file shall be uploaded as streamable or not	 
-     help - send help 
      renewme - clear all downloads (admin only)⚠️
      log - This will send you a txt file of the logs.(admin only)⚠️
      rclone - This will change your drive config on fly.(First one will be default)--(admin only)⚠️
