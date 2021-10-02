@@ -76,7 +76,7 @@ class Progress:
             elapsed_time = TimeFormatter(milliseconds=elapsed_time)
             estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
-            progress = "[{0}{1}] \n⚡PROGRESS: {2}%\n✈<b>UPLOADED</b>: ".format(
+            progress = "[{0}{1}] \n⚡PROGRESS: {2}%\n✈UPLOADED: ".format(
                 "".join(
                     [FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]
                 ),
@@ -119,11 +119,11 @@ def humanbytes(size):
         return ""
     power = 2 ** 10
     n = 0
-    Dic_powerN = {0: " ", 1: "<b>KI</b>", 2: "<b>MI</b>", 3: "<b>GI</b>", 4: "<b>TI</b>"}
+    Dic_powerN = {0: " ", 1: "KI", 2: "MI", 3: "GI<", 4: "TI"}
     while size > power:
         size /= power
         n += 1
-    return str(round(size, 2)) + " " + Dic_powerN[n] + "<b> B </b>"
+    return str(round(size, 2)) + " " + Dic_powerN[n] + "B"
 
 
 def TimeFormatter(milliseconds: int) -> str:
@@ -132,10 +132,10 @@ def TimeFormatter(milliseconds: int) -> str:
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
     tmp = (
-        ((str(days) + " <b> D </b>, ") if days else "")
-        + ((str(hours) + " <b> H </b>, ") if hours else "")
-        + ((str(minutes) + " <b> M </b>, ") if minutes else "")
-        + ((str(seconds) + " <b> S </b>, ") if seconds else "")
-        + ((str(milliseconds) + " <b>MS </b>, ") if milliseconds else "")
+        ((str(days) + " D, ") if days else "")
+        + ((str(hours) + " H , ") if hours else "")
+        + ((str(minutes) + " M, ") if minutes else "")
+        + ((str(seconds) + " S, ") if seconds else "")
+        + ((str(milliseconds) + " MS, ") if milliseconds else "")
     )
     return tmp[:-2]
