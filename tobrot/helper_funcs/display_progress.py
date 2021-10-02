@@ -50,7 +50,7 @@ class Progress:
             [
                 [
                     InlineKeyboardButton(
-                        "❌𝘾𝘼𝙉𝘾𝙀𝙇❌",
+                        "❌<b>CANCEL</b>❌",
                         callback_data=(
                             f"gUPcancel/{chat_id}/{mes_id}/{from_user}"
                         ).encode("UTF-8"),
@@ -61,7 +61,7 @@ class Progress:
         if self.is_cancelled:
             LOGGER.info("stopping ")
             await self._mess.edit(
-                f"😔𝙇𝙚𝙚𝙘𝙝 𝘾𝙖𝙣𝙘𝙚𝙡𝙡𝙚𝙙🔴: `{ud_type}` ({humanbytes(total)})"
+                f"😔<b>LEECH CANCELLED</b>🔴: `{ud_type}` ({humanbytes(total)})"
             )
             await self._client.stop_transmission()
 
@@ -76,7 +76,7 @@ class Progress:
             elapsed_time = TimeFormatter(milliseconds=elapsed_time)
             estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
-            progress = "[{0}{1}] \n⚡𝙋𝙧𝙤𝙜𝙧𝙚𝙨𝙨: {2}%\n✈𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿: ".format(
+            progress = "[{0}{1}] \n⚡<b>PROGRESS</b>: {2}%\n✈<b>UPLOADED</b>: ".format(
                 "".join(
                     [FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]
                 ),
@@ -89,7 +89,7 @@ class Progress:
                 round(percentage, 2),
             )
 
-            tmp = progress + "{0} of {1}\n🔼𝙎𝙋𝙀𝙀𝘿 : {2}/s\n⏰𝙀𝙏𝘼 : {3}\n".format(
+            tmp = progress + "{0} of {1}\n🔼<b>SPEED</b> : {2}/s\n⏰<b>ETA</b> : {3}\n".format(
                 humanbytes(current),
                 humanbytes(total),
                 humanbytes(speed),
@@ -119,11 +119,11 @@ def humanbytes(size):
         return ""
     power = 2 ** 10
     n = 0
-    Dic_powerN = {0: " ", 1: "𝙆𝙞", 2: "𝙈𝙞", 3: "𝙂𝙞", 4: "𝙏𝙞"}
+    Dic_powerN = {0: " ", 1: "<b>KI</b>", 2: "<b>MI</b>", 3: "<b>GI</b>", 4: "<b>TI</b>"}
     while size > power:
         size /= power
         n += 1
-    return str(round(size, 2)) + " " + Dic_powerN[n] + "𝘽"
+    return str(round(size, 2)) + " " + Dic_powerN[n] + "<b> B </b>"
 
 
 def TimeFormatter(milliseconds: int) -> str:
@@ -132,10 +132,10 @@ def TimeFormatter(milliseconds: int) -> str:
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
     tmp = (
-        ((str(days) + "𝘿, ") if days else "")
-        + ((str(hours) + "𝙃, ") if hours else "")
-        + ((str(minutes) + "𝙈, ") if minutes else "")
-        + ((str(seconds) + "𝙎, ") if seconds else "")
-        + ((str(milliseconds) + "𝙈𝙎, ") if milliseconds else "")
+        ((str(days) + " <b> D </b>, ") if days else "")
+        + ((str(hours) + " <b> H </b>, ") if hours else "")
+        + ((str(minutes) + " <b> M </b>, ") if minutes else "")
+        + ((str(seconds) + " <b> S </b>, ") if seconds else "")
+        + ((str(milliseconds) + " <b>MS </b>, ") if milliseconds else "")
     )
     return tmp[:-2]
