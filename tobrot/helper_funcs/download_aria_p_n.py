@@ -306,21 +306,21 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                     pass
                 #
                 if is_file is None:
-                    msgg = f"🔌<b> CONNECTIONS </b> :<b>{file.connections}"</b>
+                    msgg = f"🔌CONNECTIONS: <b>{file.connections}</b>"
                 else:
-                    msgg = f"ℹ <b> INFO </b>: <b>[🟢𝙎𝙚𝙚𝙙𝙨: <b>{file.num_seeders}</b>|🔴𝙋𝙚𝙚𝙧𝙨: <b>{file.connections}</b>]</b>"
-                msg = f"\n🗃️ <b> FILENAME </b>: <code>{downloading_dir_name}</code>"    
-                msg += f"\n🗂️ <b> TOTAL FILE SIZE </b>: <b>{file.total_length_string()}</b>"
-                msg += f"\n🌠 <b> PROGRESS </b>: <b>{file.progress_string()}</b>"
-                msg += f"\n⏰ <b> ETA </b>: <b>{file.eta_string()}</b>"
+                    msgg = f"ℹINFO: <b>[🟢𝙎𝙚𝙚𝙙𝙨: <b>{file.num_seeders}</b>|🔴𝙋𝙚𝙚𝙧𝙨: <b>{file.connections}</b>]</b>"
+                msg = f"\n🗃️ FILENAME: <code>{downloading_dir_name}</code>"    
+                msg += f"\n🗂️ TOTAL FILE SIZE: <b>{file.total_length_string()}</b>"
+                msg += f"\n🌠 PROGRESS: <b>{file.progress_string()}</b>"
+                msg += f"\n⏰ ETA: <b>{file.eta_string()}</b>"
                 msg += f"\n{msgg}"
-                msg += f"\n⚡ <b> SPEED </b>: <b>{file.download_speed_string()}</b>"
-                msg += f"\n📋 <b> GID </b>: <code>{gid}</code>"
+                msg += f"\n⚡ SPEED: <b>{file.download_speed_string()}</b>"
+                msg += f"\n📋GID: <code>{gid}</code>"
                 inline_keyboard = []
                 ikeyboard = []
                 ikeyboard.append(
                     InlineKeyboardButton(
-                        "❌<b> CANCEL </b>", callback_data=(f"cancel {gid}").encode("UTF-8")
+                        "❌CANCEL", callback_data=(f"cancel {gid}").encode("UTF-8")
                     )
                 )
                 inline_keyboard.append(ikeyboard)
