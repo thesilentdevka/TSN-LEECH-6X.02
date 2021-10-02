@@ -50,7 +50,7 @@ class Progress:
             [
                 [
                     InlineKeyboardButton(
-                        "❌<b>CANCEL</b>❌",
+                        "❌CANCEL❌",
                         callback_data=(
                             f"gUPcancel/{chat_id}/{mes_id}/{from_user}"
                         ).encode("UTF-8"),
@@ -61,7 +61,7 @@ class Progress:
         if self.is_cancelled:
             LOGGER.info("stopping ")
             await self._mess.edit(
-                f"😔<b>LEECH CANCELLED</b>🔴: `{ud_type}` ({humanbytes(total)})"
+                f"😔LEECH CANCELLED🔴: `{ud_type}` ({humanbytes(total)})"
             )
             await self._client.stop_transmission()
 
@@ -76,7 +76,7 @@ class Progress:
             elapsed_time = TimeFormatter(milliseconds=elapsed_time)
             estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
-            progress = "[{0}{1}] \n⚡<b>PROGRESS</b>: {2}%\n✈<b>UPLOADED</b>: ".format(
+            progress = "[{0}{1}] \n⚡PROGRESS: {2}%\n✈<b>UPLOADED</b>: ".format(
                 "".join(
                     [FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]
                 ),
@@ -89,7 +89,7 @@ class Progress:
                 round(percentage, 2),
             )
 
-            tmp = progress + "{0} of {1}\n🔼<b>SPEED</b> : {2}/s\n⏰<b>ETA</b> : {3}\n".format(
+            tmp = progress + "{0} of {1}\n🔼SPEED : {2}/s\n⏰ETA : {3}\n".format(
                 humanbytes(current),
                 humanbytes(total),
                 humanbytes(speed),
