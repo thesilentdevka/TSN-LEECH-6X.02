@@ -88,7 +88,7 @@ async def download_tg(client, message):
                 message=message.reply_to_message,
                 file_name=download_location,
                 progress=prog.progress_for_pyrogram,
-                progress_args=("🌀𝙩𝙧𝙮𝙞𝙣𝙜 𝙩𝙤 𝙙𝙤𝙬𝙣𝙡𝙤𝙖𝙙🧲", c_time),
+                progress_args=("🌀TRYING TO DOWNLOAD🧲", c_time),
             )
         except Exception as g_e:
             await mess_age.edit(str(g_e))
@@ -100,9 +100,9 @@ async def download_tg(client, message):
         await asyncio.sleep(5)
         if the_real_download_location:
             await mess_age.edit_text(
-                f"𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙙 𝙩𝙤 <code>{the_real_download_location}</code> 𝙞𝙣 <u>{ms}</u> 𝙨𝙚𝙘𝙤𝙣𝙙𝙨"
+                f"DOWNLOADED TO <code>{the_real_download_location}</code> IN <u>{ms}</u> SECONDS"
             )
         else:
-            await mess_age.edit_text("🔴𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 𝘾𝙖𝙣𝙘𝙚𝙡𝙡𝙚𝙙 𝙤𝙧 𝙨𝙤𝙢𝙚 𝙚𝙧𝙧𝙤𝙧 𝙝𝙖𝙥𝙥𝙚𝙣𝙚𝙙🔴")
+            await mess_age.edit_text("🔴DOWNLOAD CANCELLED OR SOME ERROR HAPPENED🔴")
             return
     return the_real_download_location, mess_age
